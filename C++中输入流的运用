@@ -1,0 +1,49 @@
+参考 https://www.cnblogs.com/luolizhi/p/5746775.html
+C++中的有很多输入函数，这里对其中比较重要的几个进行总结；
+1.cin
+2.cin.get()
+3.cin.getline()
+4.getline()
+5.gets()
+
+1.cin>>
+cin是基本的输入用法，包含在using namespace std里面，用于输入一个数字
+需要注意的是，>>是会过滤掉不可见字符，如空格回车这些；
+当需要接受一个字符串时，遇到“空格”、“Tab”、 “回车”都结束
+输入：jkljkljkl  输出：jkljkljkl
+输入：jkl jkl jkl 输出： jkl
+
+2.cin.get()
+cin.get(字符变量名字)    用来接受字符
+如 cin.get(ch)    输入：jkl   输出： j
+
+此外，cin.get(字符数组名，接受字符数目)用来接受一行字符串，可以接受空格
+char a[20]; 
+cin.get(a,20);
+输入： jkl jkl jkl
+输出： jkl jkl jkl
+整个长度由参数决定
+
+3、cin.getline() 用于接受一个字符串，可以接受空格并且输出
+char m[20]; 
+cin.getline(m,5);
+输入：jkljkljkl
+输出：jkljk  长度为5，放在m的存储地址
+
+输入：jkl jkl jkl
+输出： jkl jkl jkl
+
+事实上，cin.getline()有三个参数，最后一个参数是指结束的字符
+如果不设置遇到什么字符结束，则系统默认是‘\0’。
+如果设置了，比如‘a’，则当输入为jkla jkl jkl时，输出为jkl。该参数是不输出的
+
+4、getline() 用于接受一个字符串，可以接受空格输出，但是需要包含有文件#include<string>
+string str; 
+getline(cin,str); 
+输入：jkljkljkl
+输出：jkljkljkl
+
+输入：jkl jkl jkl
+输出：jkl jkl jkl
+
+这里是string的输入，不同于cin.getline()，属于istream，这两个是不一样的函数
